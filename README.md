@@ -1,4 +1,6 @@
 ## What is node-phone?
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/MAXDeliveryNG/phone2.svg)](https://greenkeeper.io/)
 `node-phone` is used to normalize the `mobile` phone number into a E.164 format.
 
 The common problem is user normally input the phone number in this way:
