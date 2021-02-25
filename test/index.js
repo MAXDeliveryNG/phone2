@@ -878,3 +878,71 @@ describe('Testing TZA Phone Quick Test', function() {
 	});
 
 });
+
+describe('Testing NGA Phone', function() {
+	//	valid +phone, null
+	//	valid +phone, valid iso
+	//	valid +phone, invalid iso
+	//	valid +phone, valid name
+	//	valid +phone, invalid name
+
+	const validNumbersWithCountryCode = [
+		'+234 703 312 2333',
+		'+234 713 312 2333',
+		'+234 803 312 2333',
+		'+234 813 312 2333',
+		'+234 903 312 2333',
+		'+234 913 312 2333',
+	];
+
+	describe('Test 1', function() {
+		const country = null;
+
+		validNumbersWithCountryCode.forEach((number) => {
+			const result = [number.replace(/\s/g, ''), 'NGA']
+			it (`returns ${result}`, function() {
+				phone(number, country).should.eql(result);
+			});
+		});
+	});
+
+	describe('Test 2', function() {
+		const country = 'NGA';
+		validNumbersWithCountryCode.forEach((number) => {
+			const result = [number.replace(/\s/g, ''), 'NGA']
+			it(`returns ${result}`, function() {
+				phone(number, country).should.eql(result)
+			});
+		});
+	});
+
+	describe('Test 3', function() {
+		const country = 'MEX';
+		const result = [];
+		validNumbersWithCountryCode.forEach((number)=> {
+			it(`returns ${JSON.stringify(result)}`,  function() {
+				phone(number, country).should.eql(result);
+			});
+		});
+	});
+
+	describe('Test 4 ', function() {
+		const country = 'Nigeria';
+		validNumbersWithCountryCode.forEach((number) => {
+			const result = [number.replace(/\s/g, ''), 'NGA']
+			it(`returns ${result}`, function() {
+				phone(number, country).should.eql(result);
+			});
+		});
+	});
+
+	describe('Test 5', function() {
+		const country = 'Mexico';
+		const result = [];
+		validNumbersWithCountryCode.forEach((number) => {
+			it(`returns ${JSON.stringify(result)}`, function() {
+				phone(number, country).should.eql(result);
+			});
+		});
+	});
+})
